@@ -10,7 +10,7 @@ source:
   sha256: 263f48be65765f8b9f94ea1125d8e9ca1d8a428835fee5aac19cf4ef8182b52a
 
 build:
-  number: 0
+  number: 1
   run_exports:
     - {{ pin_subpackage('soapysdr-module-plutosdr', max_pin='x.x') }}
 
