@@ -1,5 +1,5 @@
 {% set name = "soapysdr-module-plutosdr" %}
-{% set version = "0.2.0" %}
+{% set version = "0.2.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://github.com/pothosware/SoapyPlutoSDR/archive/soapy-plutosdr-{{ version }}.tar.gz
-  sha256: 263f48be65765f8b9f94ea1125d8e9ca1d8a428835fee5aac19cf4ef8182b52a
+  sha256: 359e3762d98452b5e39078795b8165048e9edc8eb144d7c9bded7e1cc5358d4e
 
 build:
-  number: 1
+  number: 0
   run_exports:
     - {{ pin_subpackage('soapysdr-module-plutosdr', max_pin='x.x') }}
 
@@ -39,7 +39,7 @@ about:
   license: LGPL-2.1-or-later
   license_family: LGPL
   license_file: LICENSE
-  summary: 'Soapy SDR plugin for PlutoSDR'
+  summary: Soapy SDR plugin for PlutoSDR
   description: |
     The Soapy Pluto SDR project provides a plugin module to use the Pluto SDR device
     within the SoapySDR API and software that supports SoapySDR.
