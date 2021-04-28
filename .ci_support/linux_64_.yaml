@@ -13,7 +13,7 @@ docker_image:
 libiio:
 - '0.21'
 soapysdr:
-- '0.7'
+- '0.8'
 target_platform:
 - linux-64
 zip_keys:

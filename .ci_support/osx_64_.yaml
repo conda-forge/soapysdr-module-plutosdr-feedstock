@@ -13,6 +13,6 @@ libiio:
 macos_machine:
 - x86_64-apple-darwin13.4.0
 soapysdr:
-- '0.7'
+- '0.8'
 target_platform:
 - osx-64
