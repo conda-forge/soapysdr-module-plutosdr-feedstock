@@ -77,6 +77,7 @@ Installing `soapysdr-module-plutosdr` from the `conda-forge` channel can be achi
 
 ```
 conda config --add channels conda-forge
+conda config --set channel_priority strict
 ```
 
 Once the `conda-forge` channel has been enabled, `soapysdr-module-plutosdr` can be installed with:
