@@ -5,7 +5,7 @@ channel_targets:
 cxx_compiler:
 - vs2017
 libiio:
-- '0.21'
+- '0'
 soapysdr:
 - '0.8'
 target_platform:
