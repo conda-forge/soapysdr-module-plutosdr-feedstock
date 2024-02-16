@@ -3,14 +3,16 @@
 
 package:
   name: {{ name|lower }}
-  version: {{ version }}
+  version: {{ version }}.post20230724
 
 source:
   url: https://github.com/pothosware/SoapyPlutoSDR/archive/soapy-plutosdr-{{ version }}.tar.gz
   sha256: 359e3762d98452b5e39078795b8165048e9edc8eb144d7c9bded7e1cc5358d4e
+  patches:
+    - 0001-Merge-main-as-of-2023-07-24-onto-version-0.2.1.patch
 
 build:
-  number: 3
+  number: 0
   run_exports:
     - {{ pin_subpackage('soapysdr-module-plutosdr', max_pin='x.x') }}
 
@@ -23,6 +25,7 @@ requirements:
   host:
     - libad9361-iio
     - libiio
+    - libusb
     - soapysdr
 
 test:
