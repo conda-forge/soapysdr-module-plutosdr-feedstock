@@ -1,5 +1,5 @@
 {% set name = "soapysdr-module-plutosdr" %}
-{% set version = "0.2.2" %}
+{% set version = "0.2.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://github.com/pothosware/SoapyPlutoSDR/archive/refs/tags/soapy-plutosdr-{{ version }}.tar.gz
-  sha256: d4282a946495aa8a48f9d4ab45b230fccd0e443208b5566f806d2ca892332929
+  sha256: 10d9e515b215bce22343babb57954dfd2a5855dc121c8607a47b4f5766acc9ba
 
 build:
-  number: 1
+  number: 0
   run_exports:
     - {{ pin_subpackage('soapysdr-module-plutosdr', max_pin='x.x') }}
 
