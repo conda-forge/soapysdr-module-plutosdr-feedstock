@@ -1,0 +1,58 @@
+schema_version: 1
+
+context:
+  name: soapysdr-module-plutosdr
+  version: "0.2.3"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://github.com/pothosware/SoapyPlutoSDR/archive/refs/tags/soapy-plutosdr-${{ version }}.tar.gz
+  sha256: 10d9e515b215bce22343babb57954dfd2a5855dc121c8607a47b4f5766acc9ba
+
+build:
+  number: 1
+
+requirements:
+  build:
+    - ${{ stdlib("c") }}
+    - ${{ compiler("cxx") }}
+    - cmake
+    - ninja
+  host:
+    - libad9361-iio-c
+    - libiio
+    - libusb
+    - soapysdr
+  run_exports:
+    - ${{ pin_subpackage("soapysdr-module-plutosdr", upper_bound="x.x") }}
+
+tests:
+  - package_contents:
+      strict: true
+      files:
+        - if: not win
+          then: lib/SoapySDR/modules${{ soapysdr }}/libPlutoSDRSupport.so
+          else: Library/lib/SoapySDR/modules${{ soapysdr }}/PlutoSDRSupport.dll
+  - script:
+      - SoapySDRUtil --info
+      - if: not win
+        then: SoapySDRUtil --info | grep PlutoSDRSupport
+        else: SoapySDRUtil --info | findstr /l PlutoSDRSupport
+
+about:
+  license: LGPL-2.1-or-later
+  license_file: LICENSE
+  summary: Soapy SDR plugin for PlutoSDR
+  description: |
+    The Soapy Pluto SDR project provides a plugin module to use the Pluto SDR device
+    within the SoapySDR API and software that supports SoapySDR.
+  homepage: https://github.com/pothosware/SoapyPlutoSDR/wiki
+  repository: https://github.com/pothosware/SoapyPlutoSDR
+  documentation: https://github.com/pothosware/SoapyPlutoSDR/wiki
+
+extra:
+  recipe-maintainers:
+    - ryanvolz
